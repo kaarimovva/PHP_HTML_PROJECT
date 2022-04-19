@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Fatima's Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+        <script type="text/JavaScript">
+
+          function btn1(){
+            const datas = ['Fatima','Nebin','','Murad','Mene','nullend']
+            edval = `
+            <table class="table">
+          <thead>
+            <tr>
+            <th scope="col">#</th>
+              <th scope="col">DATA</th>
+            </tr>
+            <tbody>
+            `;
+            let i = 0;
+            while(datas[i]!="nullend")
+            {
+                edval = edval+'<tr><th scope="row">'+String(i)+'</th>';
+                edval = edval+'<td>'+datas[i]+'</td>'+"\n";
+                edval = edval+"</tr>"
+                i = i +1;
+            }
+            edval = edval+'</tbody>';
+            document.getElementById("restable").innerHTML = edval;
+          }
+
+          function btn2(){
+            const datasa = ['Fatima','Nebin','','Murad','Mene','nullend'];
+            const datasb = [123,567,0,55,383,'nullend'];
+            const datasc = ['Karimova','Thomas','','Karimov','NebinThom','nullend'];
+            edval = `
+                <table class="table">
+              <thead>
+                <tr>
+                <th scope="col">#</th>
+                  <th scope="col">DATAS OF A</th>
+                  <th scope="col">DATAS OF B</th>
+                  <th scope="col">DATAS OF C</th>
+                </tr>
+                <tbody>
+                `;
+                let i = 0;
+                while(datasa[i]!="nullend")
+                {
+                    edval = edval+'<tr><th scope="row">'+String(i)+'</th>';
+                    edval = edval+'<td>'+datasa[i]+'</td>'+"\n";
+                    edval = edval+'<td>'+String(datasb[i])+'</td>'+"\n";
+                    edval = edval+'<td>'+datasc[i]+'</td>'+"\n";
+                    edval = edval+"</tr>"
+                    i = i +1;
+                }
+                edval = edval+'</tbody>';
+                document.getElementById("restable").innerHTML = edval;
+          }
+
+          function btn3(){
+            const datasa = ['Fatima','Nebin','','Murad','Mene','nullend'];
+            const datasb = [123,567,0,55,383,'nullend'];
+            const datasc = ['Karimova','Thomas','','Karimov','NebinThom','nullend'];
+            edval = `
+                <table class="table">
+              <thead>
+                <tr>
+                <th scope="col">#</th>
+                  <th scope="col">DATAS OF C</th>
+                  <th scope="col">DATAS OF B</th>
+                </tr>
+                <tbody>
+                `;
+                let i = 0;
+                while(datasc[i]!="nullend")
+                {
+                    edval = edval+'<tr><th scope="row">'+String(i)+'</th>';
+                    edval = edval+'<td>'+datasc[i]+'</td>'+"\n";
+                    edval = edval+'<td>'+String(datasb[i])+'</td>'+"\n";
+                    edval = edval+"</tr>"
+                    i = i +1;
+                }
+                edval = edval+'</tbody>';
+                document.getElementById("restable").innerHTML = edval;
+          }
+
+          function btn4(orderchoice){
+            let choicekeyword = "";
+            const datasb = [123,567,0,55,383,'nullend'];
+            if(orderchoice == "1")
+            {
+              datasb.sort(function(a, b){return a - b});
+              choicekeyword = "Ascending";
+            }
+            if(orderchoice == "2")
+            {
+              datasb.sort(function(a, b){return b - a});
+              choicekeyword = "Descending";
+            }
+            edval = `
+            <table class="table">
+          <thead>
+            <tr>
+            <th scope="col">#</th>
+              <th scope="col">DATA in `+choicekeyword+`</th>
+            </tr>
+            <tbody>
+            `;
+            let i = 0;
+            while(datasb[i]!="nullend")
+            {
+                edval = edval+'<tr><th scope="row">'+String(i)+'</th>';
+                edval = edval+'<td>'+datasb[i]+'</td>'+"\n";
+                edval = edval+"</tr>"
+                i = i +1;
+            }
+            edval = edval+'</tbody>';
+            document.getElementById("restable").innerHTML = edval;
+          }
+        </script>
+
+      </head>
+
+    <body>
+       
+ 
+            <form method = "post" action="index.php">
+                <div class="form-group">
+                  <label for="InputLabel1">Data</label>
+                  <input type="text" class="form-control" name="Input1"  placeholder="Enter data..">
+                </div>
+                <div class="form-group">
+                  <label for="InputLabel2">Number</label>
+                  <input type="number" class="form-control" name="Input2" placeholder="Enter data..">
+                </div>
+                <div class="form-group">
+                    <label for="InputLabel1">Data</label>
+                    <input type="text" class="form-control" name="Input3"  placeholder="Enter data..">
+                  </div>
+                <button type="submit" class="btn btn-primary" name = "save">Save</button>
+              </form>
+              <button class="btn btn-primary" onclick="btn1()">SEE TABLE A</button>
+              <button class="btn btn-primary" onclick="btn2()">SEE TABLE ABC</button>
+              <button class="btn btn-primary" onclick="btn3()">SEE TABLE CB</button>
+              <button class="btn btn-primary" onclick="btn4(1)">SEE TABLE B ASC</button>
+              <button class="btn btn-primary" onclick="btn4(2)">SEE TABLE B DESC</button>
+              <div id="restable" class = "text-centered" style="margin-top:7%;">
+              </div>          
+  </body>  
+    </html>
+
